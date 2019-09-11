@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="mt-2 navbar navbar-expand-lg navbar-light bg-light" id="navv">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <div style="position: absolute;right:10px;">
+            <button class="btn btn-primary" id="b">B</button>
+            <button class="btn btn-secondary" id="i">
+                <i>I</i>
+            </button>
+            <button class="btn btn-success" id="uln">
+                <u>U</u>
+            </button>
+            <a href="">
+                <u>Remove style</u>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row pt-2">
+            <div class="col-md-4 text-center">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <strong class="float-left">Play with button</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="card" id="bo">
+                            <div class="card-header" id="forhead">For Heading</div>
+                            <div class="card-body">
+                                <button class="btn my-1 btn-primary" id="pri">Primary</button>
+                                <button class="btn my-1 btn-outline-danger" id="out">Outline-danger</button>
+                                <button class="btn my-1 btn-success" id="success">Success</button>
+                            </div>
+                        </div>
+
+                        <div class="card mt-1" id="ft">
+                            <div class="card-header" id="fortxt">For Text</div>
+                            <div class="card-body">
+                                <button class="btn my-1 btn-outline-dark" id="od">Outline-dark</button>
+                                <button class="btn my-1 btn-info" id="inf">Info</button>
+                                <button class="btn my-1 btn-outline-secondary" id="os">Outline-secondary</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="float-left mx-1 btn btn-danger" id="hs">Hide/Show</button>
+                        <button class="float-left mx-1 btn btn-warning"id="fed">Fade</button>
+                        <button class="float-left mx-1 btn btn-primary"id="sed">Slide</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="float-left">
+                            Image Position:
+                        </strong>
+                    </div>
+                    <div class="card-body">
+                        <img onmousemove="coord(event)" src="https://www.freepnglogos.com/uploads/new-google-logo-transparent--14.png" alt="Google Logo" class="img-fluid border" id="imgsrc">
+                        <input type="text" class="mt-2 mx-auto form-control" placeholder="Enter image URL" value="" id="imgurl">
+                        <div class="bg-info mx-auto mt-2" style="height:30px;" id="mpl">Mouse Pointer Location</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="float-left">Table:</strong>
+                    </div>
+                    <div class="card-body">
+                        <strong class="float-left mb-3">Play with text</strong>
+                        <input type="text" class="form-control mb-3" placeholder="Type something here" id="type">
+						<input type="text" class="form-control mb-3 bg-light" value="Type something above" id="typed">
+						<input type="button" class="btn btn-danger mb-3 float-left" value="Remove" id="rmvbtn">
+                        <input type="text" class="form-control" placeholder="Set button text here" id="btntxt">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#hs").click(function(){
+    $("#ft").toggle();
+  });
+  $("#fed").click(function(){
+    $("#ft").fadeToggle(2000);
+  });
+  $("#sed").click(function(){
+    $("#ft").slideToggle();
+  });
+  $("#b").click(function(){
+    $("#navv").css("font-weight","bold");
+  });
+  $("#i").click(function(){
+    $("#navv").css("font-style","italic");
+  });
+  $("#uln").click(function(){
+    $("#navv").css("text-decoration","underline");
+  });
+  $("#type").keyup(function(){
+    var txt=$(this).val();
+	$("#typed").val(txt);
+	});
+  $("#btntxt").keyup(function(){
+    var txt=$(this).val();
+	$("#rmvbtn").val(txt);
+	});
+  $("#btntxt").keyup(function(){
+    var txt=$(this).val();
+	if(txt==""){
+	txt="Remove";}
+	$("#rmvbtn").val(txt);
+	});
+  $("#btntxt").keyup(function(){
+    var txt=$(this).val();
+	if(txt.toLowerCase()=="remove"){
+	$("#rmvbtn").hide();}
+	});
+  $("#pri").click(function(){
+    $("#forhead").addClass("bg-primary text-white");
+	$("#bo").addClass("border border-primary");
+  });
+  $("#out").click(function(){
+    $("#forhead").addClass("border border-outline-danger text-danger");
+	$("#bo").addClass("border border-danger");
+	});
+  $("#success").click(function(){
+    $("#forhead").addClass("bg-success text-white");
+	$("#bo").addClass("border border-success");
+  });
+  $("#od").click(function(){
+    $("#fortxt").addClass("bg-outline-dark text-outline-dark");
+	$("#ft").addClass("bg-outline-dark text-outline-dark");
+	$("#fortxt").addClass("border border-outline-dark");
+  });
+  $("#inf").click(function(){
+    $("#fortxt").addClass("bg-info text-white");
+	$("#ft").addClass("border border-info");	
+  });
+  $("#os").click(function(){
+    $("#fortxt").addClass("bg-outline-secondary text-outline-secondary");
+	$("#fortxt").addClass("border border-outline-secondary");
+	$("#ft").addClass("bg-outline-secondary text-outline-secondary");
+	$("#ft").addClass("border border-outline-secondary");	
+  });
+   $("#imgurl").keyup(function(){
+    let url = $('#imgurl').val();    
+    if(url == ""){
+        $('#imgsrc').attr("src", "https://www.freepnglogos.com/uploads/new-google-logo-transparent--14.png");
+    }else{
+        $('#imgsrc').attr("src", url);
+    }    
+   });
+});
+function coord(e){
+    mpl.innerText = e.clientX + " x " + e.clientY;
+}
+</script>
+</html>
